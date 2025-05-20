@@ -4,4 +4,4 @@ let  DNI
 
 Nombre = "Guille";
 console.log(Nombre);
-console.log(Nombre + + Nombre);
+console.log(Nombre +" "+ Nombre);
