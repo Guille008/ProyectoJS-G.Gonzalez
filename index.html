@@ -10,13 +10,44 @@
 
 <body>
     <nav>
-
+        <section>
+            <article>
+                <p>Logo</p>
+            </article>
+            <article>
+                <label for="campoBusqueda"></label>
+                <input type="search" id="campoBusqueda" name="busqueda" placeholder="                Buscar">
+            </article>
+            <article class="contBtnNav">
+                <ul>
+                    <li><button id="btnCliente">Cliente</button></li>
+                    <li><button id="btnCarrito">Carrito</button></li>
+                </ul>
+            </article>
+        </section>
+        <section class="contNavar">
+            <ul>
+                <li>Inicio</li>
+                <li>Categorias</li>
+                <li>Contacto</li>
+            </ul>
+        </section>
     </nav>
     <main>
-        <h1>Primer preentrega</h1>
-        <article>
-            <p>La idea del proyecto es hacer una tienda ecommerce para una tineda de calzados deportivos.</p>
-        </article>
+        <section class="carruselOferta">
+            <p>La idea del proyecto es hacer una tienda ecommerce para una tineda de suplementos deportivos. Aca va un
+                carrusel con ofertas</p>
+        </section>
+        <section class="contProductos" id="contenedor-productos">
+   <!--Aca van los productos mediante js-->
+        </section>
+        <div id="formularioLogin" style="display: none;">
+            <label for="nombreCliente">Nombre:</label>
+            <input type="text" id="nombreCliente">
+            <label for="dniCliente">DNI:</label>
+            <input type="number" id="dniCliente">
+            <button id="btnIngresar">Ingresar</button>
+        </div>
     </main>
     <footer>
         <p>Guillermo Gonzalez</p>
