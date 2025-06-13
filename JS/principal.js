@@ -20,9 +20,15 @@ btnCliente.addEventListener("click", () => {
         formularioLogin.style.display = "block";
     } else {
         localStorage.removeItem("usuario");
+        localStorage.removeItem("carrito");
+        localStorage.removeItem("total");
         cliente = false;
+        carrito = [];
+        total = 0;
         btnCliente.textContent = "Cliente";
-        alert("Sesión cerrada.");
+        alert("Gracias por visitartos! vuelva pronto");
+        const resumen = document.getElementById("resumenCarrito");
+        if(resumen) resumen.style.display ="none";
     }
 });
 
@@ -50,7 +56,7 @@ const productos = [
     { id: 4, nombre: "BCAA", precio: 9000 }
 ];
 
-// Cargar carrito desde localStorage si existe
+// Cargar carrito desde localStorage
 const carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
 const totalGuardado = parseInt(localStorage.getItem("total"));
 if (carritoGuardado) carrito = carritoGuardado;
@@ -84,8 +90,8 @@ function agregarEventosBotones() {
     const botones = document.querySelectorAll(".btnComprar");
 
     botones.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            const id = parseInt(e.target.getAttribute("data-id"));
+        boton.addEventListener("click", (a) => {
+            const id = parseInt(a.target.getAttribute("data-id"));
             agregarAlCarrito(id);
         });
     });
@@ -93,29 +99,34 @@ function agregarEventosBotones() {
 
 // Agregar producto al carrito
 function agregarAlCarrito(id) {
+    if(cliente != false){
     const producto = productos.find(p => p.id === id);
     if (producto) {
         carrito.push(producto);
         total += producto.precio;
-
-        // Guardar en localStorage
         localStorage.setItem("carrito", JSON.stringify(carrito));
         localStorage.setItem("total", total.toString());
 
         actualizarResumenCarrito();
     }
+} else {
+    alert("Es necesario iniciar sesion");
+}
 }
 
 // Mostrar resumen del carrito en pantalla
 function actualizarResumenCarrito() {
     let resumen = document.getElementById("resumenCarrito");
 
-    // Si no existe, lo creamos
     if (!resumen) {
         resumen = document.createElement("section");
         resumen.id = "resumenCarrito";
-        resumen.style.borderTop = "2px solid black";
-        resumen.style.marginTop = "20px";
+        resumen.style.backgroundColor = "#6b6980"
+        resumen.style.border = "2px solid black";
+        resumen.style.width = "35%";
+        resumen.style.margin = "20px auto";
+        resumen.style.padding = "10px"
+        resumen.style.borderRadius = "10px";
         document.querySelector("main").appendChild(resumen);
     }
 
