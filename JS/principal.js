@@ -25,10 +25,10 @@ btnCliente.addEventListener("click", () => {
         cliente = false;
         carrito = [];
         total = 0;
-        btnCliente.textContent = "Cliente";
+        btnCliente.textContent = "Iniciar sesion";
         alert("Gracias por visitartos! vuelva pronto");
         const resumen = document.getElementById("resumenCarrito");
-        if(resumen) resumen.style.display ="none";
+        if (resumen) resumen.style.display = "none";
     }
 });
 
@@ -49,12 +49,17 @@ document.getElementById("btnIngresar").addEventListener("click", () => {
 });
 
 // Lista de productos
-const productos = [
-    { id: 1, nombre: "Proteína Whey", precio: 15000 },
-    { id: 2, nombre: "Creatina", precio: 10000 },
-    { id: 3, nombre: "Pre-entreno", precio: 8000 },
-    { id: 4, nombre: "BCAA", precio: 9000 }
-];
+let productos = [];
+
+fetch("../data/products.json")
+    .then(respuesta => respuesta.json())
+    .then(data => {
+        productos = data;
+        renderizarProductos();
+    })
+    .catch(error => {
+        console.error("Error al cargar los productos:", error);
+    });
 
 // Cargar carrito desde localStorage
 const carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
@@ -74,7 +79,9 @@ function renderizarProductos() {
 
     productos.forEach(producto => {
         const articulo = document.createElement("article");
+        articulo.classList.add("card");
         articulo.innerHTML = `
+            <img src="${producto.imgUrl}" alt="Logo de la marca" class="logoNav">
             <p>${producto.nombre}</p>
             <p>Precio: $${producto.precio}</p>
             <button class="btnComprar" data-id="${producto.id}">Comprar</button>
@@ -99,19 +106,19 @@ function agregarEventosBotones() {
 
 // Agregar producto al carrito
 function agregarAlCarrito(id) {
-    if(cliente != false){
-    const producto = productos.find(p => p.id === id);
-    if (producto) {
-        carrito.push(producto);
-        total += producto.precio;
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        localStorage.setItem("total", total.toString());
+    if (cliente != false) {
+        const producto = productos.find(p => p.id === id);
+        if (producto) {
+            carrito.push(producto);
+            total += producto.precio;
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            localStorage.setItem("total", total.toString());
 
-        actualizarResumenCarrito();
+            actualizarResumenCarrito();
+        }
+    } else {
+        alert("Es necesario iniciar sesion");
     }
-} else {
-    alert("Es necesario iniciar sesion");
-}
 }
 
 // Mostrar resumen del carrito en pantalla
@@ -141,5 +148,16 @@ function actualizarResumenCarrito() {
             ${carrito.map(item => `<li>${item.nombre} - $${item.precio}</li>`).join("")}
         </ul>
         <p><strong>Total: $${total}</strong></p>
+        <button id="finalizarCompra">Finalizar compra</button>
     `;
+    const finalizarCompra = document.getElementById("finalizarCompra");
+finalizarCompra.addEventListener("click", () => {
+    window.location.href = "pages/finalizacion.html"
+    ;
+});
 }
+// Funciones a boton carrito y finalizar compra 
+const btnCarrito = document.getElementById("btnCarrito");
+btnCarrito.addEventListener("click", () => {
+    window.location.href = "pages/finalizacion.html";
+});

@@ -4,43 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Projecto JS</title>
+    <title>SIFIT</title>
 </head>
 
 <body>
     <nav>
         <section>
             <article>
-                <p>Logo</p>
+                <img src="/imagen/Logo SiFit.png" alt="Logo de la marca" class="logoNav">
             </article>
             <article>
                 <label for="campoBusqueda"></label>
-                <input type="search" id="campoBusqueda" name="busqueda" placeholder="                Buscar">
+                <input type="search" id="campoBusqueda" name="busqueda" placeholder="Buscar">
             </article>
             <article class="contBtnNav">
                 <ul>
-                    <li><button id="btnCliente">Cliente</button></li>
+                    <li><button id="btnCliente">Iniciar secion</button></li>
                     <li><button id="btnCarrito">Carrito</button></li>
                 </ul>
             </article>
         </section>
         <section class="contNavar">
             <ul>
-                <li>Inicio</li>
-                <li>Categorias</li>
-                <li>Contacto</li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="pages/descuentos.html">Descuentos</a></li>
+                <li><a href="pages/contacto.html">Contacto</a></li>
             </ul>
         </section>
     </nav>
     <main>
-        <section class="carruselOferta">
-            <p>La idea del proyecto es hacer una tienda ecommerce para una tineda de suplementos deportivos. Aca va un
-                carrusel con ofertas</p>
-        </section>
-        <section class="contProductos" id="contenedor-productos">
-<!--Aca van los productos mediante js-->
-        </section>
         <div id="formularioLogin" style="display: none;">
             <label for="nombreCliente">Nombre:</label>
             <input type="text" id="nombreCliente">
@@ -48,10 +43,42 @@
             <input type="number" id="dniCliente">
             <button id="btnIngresar">Ingresar</button>
         </div>
+        <section class="carruselOferta">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h2>Con tu primera compra tenes un 10%OFF</h2>
+                    </div>
+                    <div class="carousel-item">
+                        <h2>¡APROVECHA! Descuentos exclusivos en productos de Oulet</h2>
+                    </div>
+                    <div class="carousel-item">
+                        <h2>3X2 En productos de Oulet</h2>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section class="contProductos" id="contenedor-productos">
+            <!--Aca van los productos mediante js-->
+            
+        </section>
     </main>
     <footer>
         <p>Guillermo Gonzalez</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
     <script src="JS/principal.js"></script>
 </body>
 

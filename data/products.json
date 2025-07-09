@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Proteína Whey",
+        "precio": 15000,
+        "imgUrl": "./imagen/Whey protein.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Creatina",
+        "precio": 10000,
+        "imgUrl": "./imagen/Creatina.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Pre-entreno",
+        "precio": 8000,
+        "imgUrl": "./imagen/Prewar.png"
+    },
+    {
+        "id": 4,
+        "nombre": "BCAA",
+        "precio": 9000,
+        "imgUrl": "./imagen/BCAA.png"
+    },
+        {
+        "id": 5,
+        "nombre": "Post-entreno",
+        "precio": 12000,
+        "imgUrl": "./imagen/Reload.png"
+    },
+        {
+        "id": 6,
+        "nombre": "Rippedx",
+        "precio": 95000,
+        "imgUrl": "./imagen/Rippedx.png"
+    },
+        {
+        "id": 7,
+        "nombre": "L-glutamine",
+        "precio": 10000,
+        "imgUrl": "./imagen/Glutamine.png"
+    },
+        {
+        "id": 8,
+        "nombre": "Shaker",
+        "precio": 10000,
+        "imgUrl": "./imagen/Shaker.png"
+    }
+    ]
