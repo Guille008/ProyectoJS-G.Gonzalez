@@ -153,6 +153,12 @@ main {
     text-align: end;
 }
 
+#formularioLogin input{
+    border-radius: 5px;
+}
+#formularioLogin label{
+    font-size: 20px;
+}
 
 
 /*finalizacion de compra main**/
@@ -224,6 +230,11 @@ main {
 
 .formPago button:hover {
     background-color: #33363d;
+}
+
+.carroVacio{
+    display: flex;
+    align-items: center;
 }
 
 

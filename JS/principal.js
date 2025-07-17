@@ -26,7 +26,13 @@ btnCliente.addEventListener("click", () => {
         carrito = [];
         total = 0;
         btnCliente.textContent = "Iniciar sesion";
-        alert("Gracias por visitartos! vuelva pronto");
+        Swal.fire({
+            text: "¡Gracias por su visita!",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "success"
+        });
         const resumen = document.getElementById("resumenCarrito");
         if (resumen) resumen.style.display = "none";
     }
@@ -37,15 +43,35 @@ document.getElementById("btnIngresar").addEventListener("click", () => {
     const nombre = document.getElementById("nombreCliente").value.trim();
     const dni = document.getElementById("dniCliente").value.trim();
 
-    if (nombre && dni) {
-        const usuario = { nombre, dni };
-        localStorage.setItem("usuario", JSON.stringify(usuario));
-        cliente = true;
-        formularioLogin.style.display = "none";
-        btnCliente.textContent = "Cerrar sesión";
-    } else {
-        alert("Por favor completá todos los campos.");
+    if (!nombre || !dni) {
+        Swal.fire({
+            text: "¡Por favor completar campos!",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "warning"
+        });
+        return;
     }
+
+    // Validar que el DNI tenga exactamente 8 dígitos numéricos
+    const dniValido = /^\d{8}$/.test(dni);
+    if (!dniValido) {
+        Swal.fire({
+            text: "El DNI debe tener exactamente 8 dígitos numéricos.",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "error"
+        });
+        return;
+    }
+
+    const usuario = { nombre, dni };
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+    cliente = true;
+    formularioLogin.style.display = "none";
+    btnCliente.textContent = "Cerrar sesión";
 });
 
 // Lista de productos
@@ -117,7 +143,13 @@ function agregarAlCarrito(id) {
             actualizarResumenCarrito();
         }
     } else {
-        alert("Es necesario iniciar sesion");
+        Swal.fire({
+            text: "¡Es necesario Iniciar sesion!",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "success"
+        });;
     }
 }
 
@@ -151,13 +183,25 @@ function actualizarResumenCarrito() {
         <button id="finalizarCompra">Finalizar compra</button>
     `;
     const finalizarCompra = document.getElementById("finalizarCompra");
-finalizarCompra.addEventListener("click", () => {
-    window.location.href = "pages/finalizacion.html"
-    ;
-});
+    finalizarCompra.addEventListener("click", () => {
+        window.location.href = "pages/finalizacion.html"
+            ;
+    });
 }
 // Funciones a boton carrito y finalizar compra 
 const btnCarrito = document.getElementById("btnCarrito");
 btnCarrito.addEventListener("click", () => {
+    if (!cliente) {
+        Swal.fire({
+            text: "¡Es necesario inicair sesion!",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "warning"
+        }).then(() => {
+            window.location.href = "../index.html";
+        });
+    }else{
     window.location.href = "pages/finalizacion.html";
+    }
 });

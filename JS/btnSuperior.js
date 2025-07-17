@@ -9,11 +9,17 @@ window.addEventListener("DOMContentLoaded", () => {
     const enIndex = location.pathname.endsWith("index.html") || location.pathname === "/" || location.pathname === "/index.html";
 
     if (!cliente && !enIndex) {
-        alert("Necesitás iniciar sesión para continuar");
-        window.location.href = "../index.html";
+        Swal.fire({
+            text: "¡Es necesario inicair sesion!",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d",
+            icon: "warning"
+        }).then(() => {
+            window.location.href = "../index.html";
+        });
         return;
     }
-
 
     if (btnCliente) {
         btnCliente.textContent = cliente ? "Cerrar sesión" : "Iniciar sesión";
@@ -21,8 +27,15 @@ window.addEventListener("DOMContentLoaded", () => {
         btnCliente.addEventListener("click", () => {
             if (cliente) {
                 localStorage.clear();
-                alert("Sesión cerrada. ¡Hasta la próxima!");
-                window.location.href = "../index.html";
+                Swal.fire({
+                    text: "¡Hasta la proxima!",
+                    background: "#222",
+                    color: "#fff",
+                    confirmButtonColor: "#1f2b3d",
+                    icon: "info"
+                }).then(() => {
+                    window.location.href = "../index.html";
+                });
             } else {
                 window.location.href = "../index.html";
             }
@@ -41,4 +54,3 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-console.log("contactos1234");

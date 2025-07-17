@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const nombre = usuario.nombre;
 
     if (carrito.length === 0) {
-        compraFinal.innerHTML = "<h1>Tu carrito está vacío!</h1>";
+        compraFinal.innerHTML = `<h1 class="carroVacio">¡Tu carrito está vacío!</h1>`;
         return;
     }
 
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 <option value="6">6 cuotas</option>
                 <option value="12">12 cuotas</option>
             </select>
-            <button id="pagar" type="submit">Pagar ahora</button>
+            <button id="pagar">Pagar ahora</button>
         </form>
     </article>
     `;
@@ -57,17 +57,44 @@ window.addEventListener("DOMContentLoaded", () => {
     const pagar = document.getElementById("pagar");
     pagar.addEventListener("click", (e) => {
         e.preventDefault();
+        const formPago = document.querySelector(".formPago");
+        const numeroTarjeta = formPago.numeroTarjeta.value.trim();
+        const vencimiento = formPago.vencimiento.value.trim();
+        const codigoSeguridad = formPago.codigoSeguridad.value.trim();
+        const titular = formPago.titular.value.trim();
+        const tipoDocumento = formPago.tipoDocumento.value.trim();
+        const numeroDocumento = formPago.numeroDocumento.value.trim();
+        const cuotas = formPago.cuotas.value.trim();
+        if (
+            !numeroTarjeta ||
+            !vencimiento ||
+            !codigoSeguridad ||
+            !titular ||
+            !tipoDocumento ||
+            !numeroDocumento ||
+            !cuotas
+        ) {
+            Swal.fire({
+            icon: "warning",
+            text: "Por favor, completá todos los campos antes de continuar.",
+            background: "#222",
+            color: "#fff",
+            confirmButtonColor: "#1f2b3d"
+            });
+        return;
+        } else{
 
         Swal.fire({
-            title: "¡Gracias por tu compra!",
-            text: "En breve recibirás un correo con el resumen de tu pedido.",
-            icon: "success",
-            confirmButtonText: "Volver al inicio"
-        }).then(() => {
-            localStorage.removeItem("carrito");
-            localStorage.removeItem("total");
-            localStorage.removeItem("usuario");
-            window.location.href = "../index.html";
+                title: "¡Gracias por tu compra!",
+                text: "En breve recibirás un correo con el resumen de tu pedido.",
+                icon: "success",
+                confirmButtonText: "Volver al inicio"
+            }).then(() => {
+                localStorage.removeItem("carrito");
+                localStorage.removeItem("total");
+                localStorage.removeItem("usuario");
+                window.location.href = "../index.html";
+            });
+        }
         });
-    });
 });
