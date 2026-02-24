@@ -77,7 +77,7 @@ document.getElementById("btnIngresar").addEventListener("click", () => {
 // Lista de productos
 let productos = [];
 
-fetch("../data/products.json")
+fetch("./data/productos.json")
     .then(respuesta => respuesta.json())
     .then(data => {
         productos = data;
@@ -148,7 +148,7 @@ function agregarAlCarrito(id) {
             background: "#222",
             color: "#fff",
             confirmButtonColor: "#1f2b3d",
-            icon: "success"
+            icon: "warning"
         });;
     }
 }
