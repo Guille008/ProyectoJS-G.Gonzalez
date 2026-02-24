@@ -77,7 +77,7 @@ document.getElementById("btnIngresar").addEventListener("click", () => {
 // Lista de productos
 let productos = [];
 
-fetch("./data/productos.json")
+fetch("./data/products.json")
     .then(respuesta => respuesta.json())
     .then(data => {
         productos = data;
