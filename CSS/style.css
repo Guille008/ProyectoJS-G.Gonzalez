@@ -49,6 +49,7 @@ nav ul li {
 .contBtnNav {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
 }
 
 .contNavar {
@@ -76,7 +77,6 @@ nav ul li {
     color: #fff;
     border-color: #333;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    /* Transición suave */
 }
 
 #campoBusqueda {
@@ -111,7 +111,7 @@ main {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px 300px;
+    grid-template-rows: 1fr 1fr;
     gap: 10px;
     margin-top: 50px;
 }
@@ -125,12 +125,13 @@ main {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     color: black;
+    padding: 10px 5px;
 }
 
 
 .btnComprar,
 #finalizarCompra {
-    width: 50%;
+    width: 80%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
     background-color: #bdb3b362;
@@ -153,10 +154,11 @@ main {
     text-align: end;
 }
 
-#formularioLogin input{
+#formularioLogin input {
     border-radius: 5px;
 }
-#formularioLogin label{
+
+#formularioLogin label {
     font-size: 20px;
 }
 
@@ -167,17 +169,19 @@ main {
     height: 100%;
     background-color: #6b6969;
     border-radius: 5px;
-    display:flex;
+    display: flex;
     justify-content: space-around;
 }
-.infoAdicional{
+
+.infoAdicional {
     margin-top: 20px;
     font-size: 25px;
     height: 200px;
 }
-.textFinal{
+
+.textFinal {
     margin-top: 20px;
-    color:white;
+    color: white;
 }
 
 .formPago {
@@ -192,7 +196,8 @@ main {
     flex-direction: column;
     gap: 15px;
 }
-.formPago h2{
+
+.formPago h2 {
     color: #16202e;
 }
 
@@ -232,7 +237,7 @@ main {
     background-color: #33363d;
 }
 
-.carroVacio{
+.carroVacio {
     display: flex;
     align-items: center;
 }
@@ -309,4 +314,365 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 10px) and (max-width: 440px) {
+    .logoNav {
+        width: 90px;
+    }
+
+    #campoBusqueda {
+        display: none;
+    }
+
+    .contBtnNav {
+        font-size: small;
+    }
+
+    .contNavar {
+        font-size: small;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .contNavar ul {
+        padding: 0px;
+        gap: 10px;
+        height: 100%;
+        margin-bottom: 0px;
+    }
+
+    #formularioLogin {
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    #formularioLogin label {
+        font-size: small;
+    }
+
+    #formularioLogin input {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #btnIngresar {
+        width: 30%;
+        margin-top: 5px;
+        font-size: small;
+    }
+
+    .carousel-item h2 {
+        font-size: small;
+    }
+
+    .contProductos {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+    .card p {
+        font-size: small;
+    }
+
+    .btnComprar {
+        font-size: x-small;
+        width: 80%;
+    }
+
+    #resumenCarrito {
+        font-size: small;
+    }
+
+    footer p {
+        font-size: small;
+    }
+
+    h1 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
+    .list-group {
+        font-size: small;
+    }
+
+    h5,
+    h3,
+    h4 {
+        font-size: medium;
+    }
+
+    #finalizarCompra {
+        font-size: x-small;
+        width: 80%;
+    }
+    #resumenCarrito{
+        width: 80% !important;
+    }
+    #compraFinal {
+        flex-direction: column;
+        align-items: center;
+    }
+    #compraFinal ul{
+        font-size: small;
+    }
+    .formPago {
+        width: 90%;
+    }
+    .formPago h2 {
+        font-size: medium;
+    }
+    .formPago input, .formPago select {
+        font-size: small;
+    }
+    #pagar {
+        width: 50%;
+        font-size: small;
+    }
+}
+@media (min-width: 441px) and (max-width: 544px) {
+    .logoNav {
+        width: 90px;
+    }
+
+    #campoBusqueda {
+        display: none;
+    }
+
+    .contBtnNav {
+        font-size: small;
+    }
+
+    .contNavar {
+        font-size: small;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .contNavar ul {
+        padding: 0px;
+        gap: 10px;
+        height: 100%;
+        margin-bottom: 0px;
+    }
+
+    #formularioLogin {
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    #formularioLogin label {
+        font-size: small;
+    }
+
+    #formularioLogin input {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #btnIngresar {
+        width: 30%;
+        margin-top: 5px;
+        font-size: small;
+    }
+
+    .carousel-item h2 {
+        font-size: small;
+    }
+
+    .contProductos {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .card p {
+        font-size: small;
+    }
+
+    .btnComprar {
+        font-size: x-small;
+        width: 80%;
+    }
+
+    #resumenCarrito {
+        font-size: small;
+    }
+
+    footer p {
+        font-size: small;
+    }
+
+    h1 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
+    .list-group {
+        font-size: small;
+    }
+
+    h5,
+    h3,
+    h4 {
+        font-size: medium;
+    }
+
+    #finalizarCompra {
+        font-size: x-small;
+        width: 80%;
+    }
+    #resumenCarrito{
+        width: 80% !important;
+    }
+    #compraFinal {
+        flex-direction: column;
+        align-items: center;
+    }
+    #compraFinal ul{
+        font-size: small;
+    }
+    .formPago {
+        width: 90%;
+    }
+    .formPago h2 {
+        font-size: medium;
+    }
+    .formPago input, .formPago select {
+        font-size: small;
+    }
+    #pagar {
+        width: 50%;
+        font-size: small;
+    }
+}
+@media (min-width: 545px) and (max-width: 768px) {
+    .logoNav {
+        width: 90px;
+    }
+
+    .contBtnNav {
+        font-size: medium;
+    }
+
+    .contNavar {
+        font-size: medium;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .contNavar ul {
+        padding: 0px;
+        gap: 10px;
+        height: 100%;
+        margin-bottom: 0px;
+    }
+
+    #formularioLogin {
+        width: 30%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    #formularioLogin label {
+        font-size: medium;
+    }
+
+    #formularioLogin input {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #btnIngresar {
+        width: 50%;
+        margin-top: 5px;
+        font-size: medium;
+    }
+
+    .carousel-item h2 {
+        font-size: medium;
+    }
+
+    .contProductos {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .card p {
+        font-size: medium;
+    }
+
+    .btnComprar {
+        font-size: medium;
+        width: 80%;
+    }
+
+    #resumenCarrito {
+        font-size: medium;
+    }
+
+    footer p {
+        font-size: medium;
+    }
+
+    h1 {
+        font-size: large;
+    }
+
+    p {
+        font-size: medium;
+    }
+
+    .list-group {
+        font-size: medium;
+    }
+
+    h5,
+    h3,
+    h4 {
+        font-size: large;
+    }
+
+    #finalizarCompra {
+        font-size: medium;
+        width: 80%;
+    }
+    #resumenCarrito{
+        width: 80% !important;
+    }
+    #compraFinal {
+        flex-direction: column;
+        align-items: center;
+    }
+    #compraFinal ul{
+        font-size: medium;
+    }
+    .formPago {
+        width: 90%;
+    }
+    .formPago h2 {
+        font-size: medium;
+    }
+    .formPago input, .formPago select {
+        font-size: small;
+    }
+    #pagar {
+        width: 50%;
+        font-size: small;
+    }
 }
